@@ -96,10 +96,13 @@ public class ForExample {
 			System.out.println("정수 입력:");
 			int a = sc.nextInt();
 			
-			if (a % 2 == 0) {
+			if(a == 0) {
+				System.out.println("0일때는 카운트 하지 않습니다");
+			}else if (a % 2 == 0) {
 				count++;
-				System.out.println(count);
+			
 			}
+			System.out.println(count);
 		}
 	
 		
