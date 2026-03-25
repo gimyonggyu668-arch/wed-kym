@@ -19,7 +19,8 @@ public class TernaryOperatorExample {
 		
 		//삼항연산자의 중첩이 가능하다.
 		int score = 85;
-		char grade = (score > 90) ? 'A' : (score > 80) ? 'B' : 'c';
+		char grade = (score > 90) ? 'A'
+				   : (score > 80) ? 'B' : 'c';
 		System.out.println("성적 : " + grade);
 		
 		
