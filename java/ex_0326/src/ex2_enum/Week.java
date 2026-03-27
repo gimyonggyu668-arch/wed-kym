@@ -10,10 +10,10 @@ package ex2_enum;
 //
 public enum Week {
 	MONDAY,
-	TUESDAY,
-	WEDENSDAY,
-	THRSDAY,
+	THURSDAY,
+	WEDNESDAY,
 	FRIDAY,
 	SATURDAY,
 	SUNDAY,
+	TUESDAY,
 }

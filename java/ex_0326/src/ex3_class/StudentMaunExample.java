@@ -12,8 +12,8 @@ public class StudentMaunExample {
 		student.score = 87;
 		
 		
-		
-		System.out.println(Arrays.toString(arr));
-		
+		System.out.println("이름: "+ student.name);
+		System.out.println("점수: "+ student.score);
+		System.out.println("나이: " + student.age);
 	}
 }
