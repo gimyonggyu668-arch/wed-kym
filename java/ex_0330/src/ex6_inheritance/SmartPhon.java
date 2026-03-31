@@ -4,7 +4,7 @@ package ex6_inheritance;
 //extends 키워드를 통해 상속받을 클래스를 선택한다.
 //상속 받는 클래스 (자식클래스,파생클래스 등)
 public class SmartPhon extends Phone{
-
+//자식클래스이 고유한 필드
 	public boolean wifi;
 	
 	public SmartPhon(String model, String color) {

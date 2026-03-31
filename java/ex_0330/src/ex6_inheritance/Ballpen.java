@@ -1,17 +1,15 @@
 package ex6_inheritance;
 
-public class Ballpen {
-	 private int amount; 
+public class Ballpen extends Pen {
+	
 	 private String color;
 
 
-public void setAmount(int amount){
-	this.amount = amount;
-}
-public String getColor(){
+
+public String setColor(){
 	return color;
 }
-public void setColor(String color){
+public void getColor(String color){
 	this.color = color;
 	}
 }

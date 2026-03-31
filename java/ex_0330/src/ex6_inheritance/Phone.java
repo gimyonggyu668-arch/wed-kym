@@ -23,7 +23,7 @@ public class Phone {
 		System.out.println("벨이 울립니다.");
 		
 	}
-	public void sendMessage(String message) {
+	public void setMessage(String message) {
 		System.out.println("나 : " + message);
 		
 	}
