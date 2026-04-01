@@ -1,7 +1,8 @@
 package ex6_inheritance;
 
-//공통적인 내용을 담을 pen클래스
+//공통적인 내용을 담을 pen
 public class Pen {
+	@SuppressWarnings("unused")
 	private int amount;
 	
 	  public void setAmount(int amount) {

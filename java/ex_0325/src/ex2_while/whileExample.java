@@ -3,6 +3,7 @@ package ex2_while;
 import java.util.Scanner;
 
 public class whileExample {
+	@SuppressWarnings("resource")
 	public static void main(String[] args) {
 		int x = 1;
 		

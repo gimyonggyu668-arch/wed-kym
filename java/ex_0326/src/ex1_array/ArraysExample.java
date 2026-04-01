@@ -4,6 +4,7 @@ import java.util.Arrays;
 import java.util.Comparator;
 
 public class ArraysExample {
+	@SuppressWarnings("unused")
 	public static void main(String[] args) {
 		//배열의 출력
 		// toString()

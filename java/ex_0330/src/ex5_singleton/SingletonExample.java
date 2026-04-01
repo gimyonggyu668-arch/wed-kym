@@ -50,6 +50,7 @@ public class SingletonExample {
 		//3.설정(config) -> 모든 곳에서 동일한 값을 가진다.
 		
 		
+		@SuppressWarnings("unused")
 		Calendar cal = Calendar.getInstance();
 		
 		

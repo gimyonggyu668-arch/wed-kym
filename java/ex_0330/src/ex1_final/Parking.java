@@ -1,7 +1,5 @@
 package ex1_final;
 
-import java.util.Scanner;
-
 public class Parking {
 	//기본요금 :10000원
 	//추가요금 :시간당 2000원 

@@ -3,6 +3,7 @@ package ex_variable;
 
 public class Ex1_variable {
 
+	@SuppressWarnings("unused")
 	public static void main(String[] args) {
 		//System.out.println(10);
 		int x; //x라는 이름의 정수타입의 변수를 선언

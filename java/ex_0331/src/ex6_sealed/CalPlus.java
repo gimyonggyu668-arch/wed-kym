@@ -7,4 +7,3 @@ public class CalPlus extends Calculator{
 			return n1 + n2;
 		}
   }
-

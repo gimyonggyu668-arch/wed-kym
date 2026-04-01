@@ -1,7 +1,5 @@
 package ex5_polymorphism.exam02;
 
-import java.net.MulticastSocket;
-
 //추상 클래스
 public 
 abstract class Animal{

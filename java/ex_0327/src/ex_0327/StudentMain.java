@@ -1,7 +1,5 @@
 package ex_0327;
 
-import java.util.Arrays;
-
 public class StudentMain {
 	public static void main(String[] args) {
 		Student minsu = new Student();

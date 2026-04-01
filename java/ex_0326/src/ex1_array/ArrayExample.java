@@ -1,7 +1,6 @@
 package ex1_array;
 
-import java.util.Random;
-import java.util.Scanner;
+
 
 public class ArrayExample {
 	public static void main(String[] args) {

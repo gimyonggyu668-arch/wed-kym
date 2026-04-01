@@ -3,6 +3,7 @@ package ex1_final;
 import java.util.Scanner;
 
 public class DiscountMain {
+	@SuppressWarnings("resource")
 	public static void main(String[] args) {
 		Scanner sc = new Scanner(System.in);
 		System.out.println("금액: ");

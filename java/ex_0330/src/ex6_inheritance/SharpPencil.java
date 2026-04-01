@@ -1,8 +1,7 @@
 package ex6_inheritance;
 
 public class SharpPencil {
-	private int width; 
-    private int amount;
+	private int amount;
     
     public void setAmount(int amount) {
         this.amount = amount;

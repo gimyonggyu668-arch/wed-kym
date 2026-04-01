@@ -3,6 +3,7 @@ package ex2_enum;
 import java.util.Calendar;
 
 public class WeekExample {
+	@SuppressWarnings("unused")
 	public static void main(String[] args) {
 		
 		//왜 열거형을 사용해야 하는가?

@@ -5,6 +5,7 @@ public class A {
 	
 	int field2;
 	
+	@SuppressWarnings("unused")
 	private int field3;
 	
 	public void method1() {

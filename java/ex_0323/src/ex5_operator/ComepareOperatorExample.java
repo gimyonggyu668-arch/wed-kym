@@ -1,6 +1,7 @@
 package ex5_operator;
 
 public class ComepareOperatorExample {
+	@SuppressWarnings("unused")
 	public static void main(String[] args) {
 		//관계(비교)연산자
 				//크기비교(<,<=<,>,>=)

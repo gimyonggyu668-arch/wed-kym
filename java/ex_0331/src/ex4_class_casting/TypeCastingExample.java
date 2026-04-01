@@ -44,6 +44,7 @@ public class TypeCastingExample {
 		
 		//부모타입의 배열에 서로 다른 자식 객체를 넣을 수 있다는 장점
 		
+		@SuppressWarnings("unused")
 		Animal[] array = {new Dog(), new Cat()};
 		
 		}
