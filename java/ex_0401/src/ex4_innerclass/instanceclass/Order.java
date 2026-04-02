@@ -4,11 +4,11 @@ public class Order {
 	int orderNumber;
 	
 	public Order(int orderNumber) {
-		this.orderNumber = orderNumber;
+		this.orderNumber = orderNumber;//생성자를 통해서 필드 초기화
 	}
 	
 	class Item{
-		String name;
+		String name; //상품정보, 주문번호 필드
 		int price;
 		int count;
 		
