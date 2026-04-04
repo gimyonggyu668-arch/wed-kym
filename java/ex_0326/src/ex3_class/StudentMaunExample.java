@@ -1,11 +1,13 @@
 package ex3_class;
 
-import java.util.Arrays;
+
 
 public class StudentMaunExample {
 	public static void main(String[] args) {
 		StudentMaun student = new StudentMaun();
+		@SuppressWarnings("unused")
 		String arr1;
+		@SuppressWarnings("unused")
 		int arr;
 		student.name = "김용민";
 		student.age = 20;

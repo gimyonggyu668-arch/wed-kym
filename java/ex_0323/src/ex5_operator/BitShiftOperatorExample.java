@@ -1,6 +1,7 @@
 package ex5_operator;
 
 public class BitShiftOperatorExample {
+	@SuppressWarnings("unused")
 	public static void main(String[] args) {
 		int num1 = 1; // 0001
 		int result1 = num1 << 3;

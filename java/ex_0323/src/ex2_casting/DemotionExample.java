@@ -1,6 +1,7 @@
 package ex2_casting;
 
 public class DemotionExample {
+	@SuppressWarnings("unused")
 	public static void main(String[] args) {
 		
 		//강제형변환

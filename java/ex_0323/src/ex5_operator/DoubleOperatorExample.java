@@ -1,6 +1,7 @@
 package ex5_operator;
 
 public class DoubleOperatorExample {
+	@SuppressWarnings("unused")
 	public static void main(String[] args) {
 		//산술연산자
 		//+,-,*,/,% 연산자가 존재한다.

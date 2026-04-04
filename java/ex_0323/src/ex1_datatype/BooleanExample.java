@@ -11,6 +11,7 @@ public class BooleanExample {
 		
 		//변수의 이름을 잘 지어야 한다.
 		boolean isOn = true;//전등이 켜져있는 상태이다.
+		@SuppressWarnings("unused")
 		boolean isStudent = false; //학생이 아니다.
 		
 		//boolean 변수를 다른 변수에 대입할 수 있다.

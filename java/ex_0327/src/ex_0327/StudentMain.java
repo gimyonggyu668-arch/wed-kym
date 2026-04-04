@@ -1,7 +1,5 @@
 package ex_0327;
 
-import java.util.Arrays;
-
 public class StudentMain {
 	public static void main(String[] args) {
 		Student minsu = new Student();
@@ -26,7 +24,7 @@ public class StudentMain {
 		//배열에는 같은 타입의 데이터만 넣을 수 있다.
 		//데이터의 타입은 배열 앞에 명시한다.
 		
-		Student[] students = {minsu,gildong, yonghee};//**중요**
+		Student[] students = {minsu, gildong, yonghee};//**중요**
 		//우리가 만든 참조자료형
 		
 		System.out.println(students[0].name);

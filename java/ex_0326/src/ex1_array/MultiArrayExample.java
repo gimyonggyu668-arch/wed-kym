@@ -1,9 +1,10 @@
 package ex1_array;
 
-import java.util.Arrays;
+
 import java.util.Scanner;
 
 public class MultiArrayExample {
+	@SuppressWarnings({ "resource", "unused" })
 	public static void main(String[] args) {
 		//2차원 배열: 1차원 배열을 요소로 갖는 배열
 		

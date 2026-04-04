@@ -6,8 +6,10 @@ public class ArrayExample {
 		
 		//{1,2,3,4,5,};-> 초기화 리스트
 		//배열을 선언함과 동시에 초기화 리스트를 사용하는것이 가능하다.
+		@SuppressWarnings("unused")
 		int[] arr = {1,2,3,4,5};
 		
+		@SuppressWarnings("unused")
 		int[] arr2; //배열의 선언
 		
 		//int[] arr2 = {100,200,300}; 선언후 초기화 리스트를 대입할 수는 없다.

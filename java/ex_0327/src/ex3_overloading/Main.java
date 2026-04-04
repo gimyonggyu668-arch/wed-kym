@@ -1,6 +1,7 @@
 package ex3_overloading;
 
 public class Main {
+	@SuppressWarnings("unused")
 	public static void main(String[] args) {
 		OverloadingExample o = new OverloadingExample();
 		

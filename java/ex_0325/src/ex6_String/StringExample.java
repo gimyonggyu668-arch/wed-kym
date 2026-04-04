@@ -5,6 +5,7 @@ import java.util.Scanner;
 
 
 public class StringExample {
+	@SuppressWarnings("resource")
 	public static void main(String[] args) {
 		//String
 		//문자들의 집합을 저장하는 객체 타입
