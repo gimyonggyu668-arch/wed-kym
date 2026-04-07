@@ -71,6 +71,17 @@ public class PatternExample {
 		
 		str = "gimyongg668@gamil.com";
 		regExp = "[a-zA-Z0-9_]+@[a-zA-Z0-9+.[a-zA-Z{2/}";
+		
+		String[] arr2 = {"홍길동","Tom","김철수","a1","김이박조길동"};
+		
+		//한글만 , 2~5글자
+		regExp = "[가-힣]{2,5}";
+		
+		for(String s : arr2) {
+			if(s.matches(regExp)) {
+				System.out.println(s);
+			}
+		}
 	
 		
 		
