@@ -40,10 +40,17 @@ public class Pet {
 	}
 	public void Meal() {
 		if(Hunger <= 100) {
-			this.Energy = Energy + beb*10; 
-			System.out.println("(에너지가 " + beb*10 + "이 채워졌습니다.)");
-		}else {
-			System.out.println("에너지가 너무 넘칩니다./ 산책을 나가세요!");
+			this.Hunger = Hunger + beb*10; 
+				System.out.println("(배고픔이 " + beb*10 + "이 채워졌습니다.)");
+			
+			 if(Hunger >= 60) {
+				System.out.println("에너지가 너무 넘칩니다./ 산책을 나가세요!");
+				 if(Hunger >= 100) {
+
+				 this.Energy = Energy + 10;
+				 this.Hunger = 0;
+
+				 }
 		}
 			
 		
