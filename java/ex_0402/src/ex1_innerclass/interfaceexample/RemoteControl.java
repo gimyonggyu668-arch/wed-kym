@@ -10,6 +10,18 @@ public class RemoteControl {
 			System.out.println("전원을 켭니다.");
 		}
 	}
+
+
+	public void turnOn() {
+		// TODO Auto-generated method stub
+		
+	}
+
+
+	public void turnOn1() {
+		// TODO Auto-generated method stub
+		
+	}
 	
 	
 	

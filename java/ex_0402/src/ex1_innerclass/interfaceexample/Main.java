@@ -6,8 +6,8 @@ public class Main {
 		//Calculator.Result result2 = result.add(10,20);
 		
 		//result2.show();
-		h.use3(new RemoteControl()){
+		
 			
 		}
 	}
-}
+
