@@ -45,8 +45,9 @@ public class Pet {
 			
 			 if(Hunger >= 60) {
 				System.out.println("에너지가 너무 넘칩니다./ 산책을 나가세요!");
-				 if(Hunger >= 100) {
-
+			 }
+		if(Hunger >= 100) {
+			System.out.println("에너지가 10 채워졌습니다.");
 				 this.Energy = Energy + 10;
 				 this.Hunger = 0;
 
@@ -54,7 +55,7 @@ public class Pet {
 		}
 			
 		
-	}
+	
 	public void walk() {
 		this.Hunger = Hunger - 5;
 		if(Hunger <= 0) {
