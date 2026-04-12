@@ -23,6 +23,7 @@ numbers[2] = 10;
 int[] numbers = {초기화 값};
 String[] char = {초기화 값};
 ```
+.
 
 ## 배열 순회
 ```int[] numbers{1, 2, 3, 4, 5};
