@@ -41,96 +41,96 @@ public class BingoGame {
 
 	// 5단계
 	// 숫자가 빙고판에 없으면 "빙고판에 없는 숫자입니다."라고 출력하기
-	public int checkBoard() {
-		int count = 0;
-		boolean flag = false;
-
-		// 1. 가로 빙고 : 0 1 2 3 4 / 5 6 7 8 9 / 10 11 12 13 14.. 5개씩 끊어서 전부 값이 0인지 확인
+//	public int checkBoard() {
+//		int count = 0;
+//		boolean flag = false;
+//
+//		// 1. 가로 빙고 : 0 1 2 3 4 / 5 6 7 8 9 / 10 11 12 13 14.. 5개씩 끊어서 전부 값이 0인지 확인
 		// 2. 세로 빙고 : 0 5 10 15 20 / 1 6 11 16 21 / ... 5개씩 끊어서 전부 값이 0인지 확인
 		// 3. 대각선 빙고 : 0 6 12 18 24 / 4
 
 		// 가로
-
-		for (int i = 0; i < 5; i++) {
-
-			flag = true;
-			for (int j = 0; j < 5; j++) {
-				if (bingoList.get(5 * i + j) == 0) {
-					continue;
-				} else {
-					flag = false;
-					break;
-				}
-			}
-
-			if (flag == false) {
-				continue;
-			} else {
-				count++;
-			}
-
-		}
-
-		// 가로 끝
-		// 세로
-
-		for (int i = 0; i < 5; i++) {
-			flag = true;
-			for (int j = 0; j < 5; j++) {
-				if (bingoList.get(i + 5 * j) == 0) {
-					continue;
-				} else {
-					flag = false;
-					break;
-				}
-			}
-
-			if (flag == false) {
-				continue;
-			} else {
-				count++;
-			}
-
-		}
-
-		// 세로 끝
-		// 대각선 (6의 배수가 전부 0, or 4의 배수 전부 0)
-		// 6의 배수
-		for (int i = 0; i < 5; i++) {
-
-			flag = true;
-
-			if (bingoList.get(6 * i) == 0) {
-				continue;
-			} else {
-				flag = false;
-				break;
-			}
-		}
-
-		if (flag == true) {
-			count++;
-		}
-
-		// 6의 배수 끝
-		// 4의 배수
-
-		for (int i = 0; i < 5; i++) {
-			flag = true;
-			if (bingoList.get(4 * i) == 0) {
-				continue;
-			} else {
-				flag = false;
-				break;
-			}
-		}
-
-		if (flag == true) {
-			count++;
-		}
-		// 4의 배수 끝
-		// count 반환하여 빙고 개수 알려주기
-		return count;
+//
+//		for (int i = 0; i < 5; i++) {
+//
+//			flag = true;
+//			for (int j = 0; j < 5; j++) {
+//				if (bingoList.get(5 * i + j) == 0) {
+//					continue;
+//				} else {
+//					flag = false;
+//					break;
+//				}
+//			}
+//
+//			if (flag == false) {
+//				continue;
+//			} else {
+//				count++;
+//			}
+//
+//		}
+//
+//		// 가로 끝
+//		// 세로
+//
+//		for (int i = 0; i < 5; i++) {
+//			flag = true;
+//			for (int j = 0; j < 5; j++) {
+//				if (bingoList.get(i + 5 * j) == 0) {
+//					continue;
+//				} else {
+//					flag = false;
+//					break;
+//				}
+//			}
+//
+//			if (flag == false) {
+//				continue;
+//			} else {
+//				count++;
+//			}
+//
+//		}
+//
+//		// 세로 끝
+//		// 대각선 (6의 배수가 전부 0, or 4의 배수 전부 0)
+//		// 6의 배수
+//		for (int i = 0; i < 5; i++) {
+//
+//			flag = true;
+//
+//			if (bingoList.get(6 * i) == 0) {
+//				continue;
+//			} else {
+//				flag = false;
+//				break;
+//			}
+//		}
+//
+//		if (flag == true) {
+//			count++;
+//		}
+//
+//		// 6의 배수 끝
+//		// 4의 배수
+//
+//		for (int i = 0; i < 5; i++) {
+//			flag = true;
+//			if (bingoList.get(4 * i) == 0) {
+//				continue;
+//			} else {
+//				flag = false;
+//				break;
+//			}
+//		}
+//
+//		if (flag == true) {
+//			count++;
+//		}
+//		// 4의 배수 끝
+//		// count 반환하여 빙고 개수 알려주기
+//		return count;
 	}
 
-}
+
