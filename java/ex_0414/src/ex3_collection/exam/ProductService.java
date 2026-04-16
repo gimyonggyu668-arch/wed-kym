@@ -28,51 +28,33 @@ public class ProductService {
 			System.out.println(p);
 		}
 	}
-     	//제품코드를 통해 제품을 찾는 메서드
-	public Product findByCode(String code) {
-		for (Product p : productList) {
-			if (p.getCode().equals(code))
-				return p;
-		}
-		return null; //if문에 못들어 갈 수도 있으니 바깥에 return을 써줌
-		
-	}
-
-	public void updateProduct(String code, Function<Product,Product> updatepr
-			//코드에 해당하는 제품 한 개 찾기
-			Product p = findByCode(code);
-	
-		if(p == null) {
-			System.out.println("상품이 존재하지 않습니다.");
-			return;
-		}
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
+    
 	
 }
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	

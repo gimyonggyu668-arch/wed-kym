@@ -34,7 +34,7 @@ public class Pet {
 		System.out.println("[1] : 의사표현 ");
 		System.out.println("[2] : 밥 먹기 ");
 		System.out.println("[3] : 산책가기 ");
-		System.err.println("[4] : 잠자기 ");
+		System.out.println("[4] : 잠자기 ");
 		
 		
 	}
