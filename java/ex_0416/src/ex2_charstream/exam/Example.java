@@ -5,10 +5,10 @@ import java.io.IOException;
 
 public class Example {
     public static void main(String[] args) {
-        int upper = 0; // 대문자 카운트
-        int lower = 0; // 소문자 카운트
+        int upper = 0; 
+        int lower = 0;
         
-        // try-with-resources 문법을 쓰면 fr.close()를 자동으로 해줘서 편리합니다!
+        
         try (FileReader fr = new FileReader("test.txt")) {
             int code;
             
