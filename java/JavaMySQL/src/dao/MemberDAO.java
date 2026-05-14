@@ -73,9 +73,7 @@ public class MemberDAO {
 	   } catch (Exception e) {
 		   
    //수정
-	public void updateMember() {
-		
-	}
+	
    
    //삭제
 	  }
