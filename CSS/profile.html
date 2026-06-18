@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="box.css"/>
+    <style>
+        /* flex
+        자식 요소를 내가 원하는 방량으로 정렬
+        다만 기본값이 왼쪽에서 오른쪽으로 배치   */
+        .flex{
+            display: flex;
+        }
+        .row{
+            display: flex;
+            /* row가 기본값임 */
+            flex-direction: row;
+            border-bottom: 1px dashed gray;
+        }
+        .rowReverse{
+            display: flex;
+            flex-direction: row-reverse;
+        }
+        .column{
+            display: flex;
+            flex-direction: column;
+
+        }
+        .columnReverse{
+            display: flex;
+            flex-direction: column-reverse;
+        }
+        </style>
+        
+    
+</head>
+<body>
+    <h2>display: flex;</h2>
+    <section class="flex">
+        <div class="box a">01</div>
+        <div class="box b">02</div>
+        <div class="box c">03</div>
+    </section>
+    <h2>flex-direction</h2>
+    <div class="row">
+        <div class="box a">01</div>
+        <div class="box b">02</div>
+        <div class="box c">03</div>
+    </div>
+    <h2>flex-direction</h2>
+    <div class="columnReverse">
+        <div class="box a">01</div>
+        <div class="box b">02</div>
+        <div class="box c">03</div>
+    </div>
+</body>
+</html>
