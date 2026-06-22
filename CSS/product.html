@@ -1,0 +1,200 @@
+<!-- 문제
+ 온라인 쇼핑몰의 상품 목록 페이지를 제작하시오.
+ 
+ 요구사항 
+ 상단 제목은 오늘의 추천 상품
+ 상품 카드 6개를  grid로 배치한다.
+ 한 줄에 3개씩 표시한다.
+ 각 카드에는 상품명, 설명, 가격, 버튼을 표시한다.
+ 카드 사이 간격은 20px로 한다.
+ 카드에는 테두리, 배경색, 둥근 모서리를 적용한다.-->
+ <!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>오늘의 추천 상품</title>
+    <style>
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            font-family: 'Noto Sans KR', sans-serif;
+        }
+
+        body {
+            background-color: #f8f9fa;
+            padding: 40px 20px;
+            display: flex;
+            justify-content: center;
+        }
+
+        .container {
+            max-width: 1200px;
+            width: 100%;
+        }
+
+        /* 상단 제목 */
+        .title {
+            font-size: 28px;
+            font-weight: bold;
+            margin-bottom: 30px;
+            color: #000000;
+        }
+
+        /* 상품 그리드 레이아웃 (한 줄에 3개, 간격 20px) */
+        .product-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 20px;
+        }
+
+        /* 상품 카드 스타일 */
+        .product-card {
+            background-color: #ffffff;
+            border: 1px solid #e2e8f0;
+            border-radius: 12px;
+            padding: 30px;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            min-height: 220px;
+            transition: transform 0.2s, box-shadow 0.2s;
+        }
+
+        /* 카드 마우스 호버 효과 */
+        .product-card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.05);
+        }
+
+        /* 상품 정보 텍스트 */
+        .product-name {
+            font-size: 20px;
+            font-weight: bold;
+            color: #111111;
+            margin-bottom: 12px;
+        }
+
+        .product-desc {
+            font-size: 14px;
+            color: #718096;
+            margin-bottom: 16px;
+            line-height: 1.5;
+        }
+
+        .product-price {
+            font-size: 18px;
+            font-weight: bold;
+            color: #111111;
+            margin-bottom: 20px;
+        }
+
+        /* 장바구니 버튼 */
+        .btn-cart {
+            width: 100%;
+            background-color: #1a1a1a;
+            color: #ffffff;
+            border: none;
+            border-radius: 6px;
+            padding: 12px 0;
+            font-size: 14px;
+            font-weight: 500;
+            cursor: pointer;
+            transition: background-color 0.2s;
+        }
+
+        .btn-cart:hover {
+            background-color: #333333;
+        }
+
+        /* 반응형 레이아웃 (태블릿/모바일 화면 대응) */
+        @media (max-width: 992px) {
+            .product-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        @media (max-width: 600px) {
+            .product-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <h1 class="title">오늘의 추천 상품</h1>
+        
+        <div class="product-grid">
+            <div class="product-card">
+                <div>
+                    <h2 class="product-name">무선 마우스</h2>
+                    <p class="product-desc">가볍고 조용한 사무용 마우스</p>
+                </div>
+                <div>
+                    <div class="product-price">29,000원</div>
+                    <button class="btn-cart">장바구니</button>
+                </div>
+            </div>
+
+            <div class="product-card">
+                <div>
+                    <h2 class="product-name">기계식 키보드</h2>
+                    <p class="product-desc">타건감이 좋은 입문용 키보드</p>
+                </div>
+                <div>
+                    <div class="product-price">79,000원</div>
+                    <button class="btn-cart">장바구니</button>
+                </div>
+            </div>
+
+            <div class="product-card">
+                <div>
+                    <h2 class="product-name">노트북 거치대</h2>
+                    <p class="product-desc">자세 교정에 좋은 알루미늄 거치대</p>
+                </div>
+                <div>
+                    <div class="product-price">35,000원</div>
+                    <button class="btn-cart">장바구니</button>
+                </div>
+            </div>
+
+            <div class="product-card">
+                <div>
+                    <h2 class="product-name">USB 허브</h2>
+                    <p class="product-desc">노트북 확장에 필요한 5포트 허브</p>
+                </div>
+                <div>
+                    <div class="product-price">22,000원</div>
+                    <button class="btn-cart">장바구니</button>
+                </div>
+            </div>
+
+            <div class="product-card">
+                <div>
+                    <h2 class="product-name">웹캠</h2>
+                    <p class="product-desc">온라인 수업과 회의에 적합한 웹캠</p>
+                </div>
+                <div>
+                    <div class="product-price">45,000원</div>
+                    <button class="btn-cart">장바구니</button>
+                </div>
+            </div>
+
+            <div class="product-card">
+                <div>
+                    <h2 class="product-name">모니터 받침대</h2>
+                    <p class="product-desc">책상을 깔끔하게 정리할 수 있는 받침대</p>
+                </div>
+                <div>
+                    <div class="product-price">18,000원</div>
+                    <button class="btn-cart">장바구니</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</body>
+</html>
