@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .h-btn{
+            background-color : skyblue;
+            padding : 10px 20px;
+        }
+       /* 버튼에 마우스를 올린 상태 */
+       .h-btn:hover{
+        background-color : orange;
+       }
+       /* 버튼을 누른 상태 */
+       .h-btn:active{
+        background-color : red;
+       }
+       input{
+        border : 2px solid gray;
+        padding : 10px;
+       }
+       /* 입력창을 클릭했을 때 */
+       input:focus{ 
+       }
+       /* 아직 방문하지 않은 상태 */
+       a:link{
+        color : #3498db;
+       }
+       /* 방문한 상태 */
+       a:visited{
+        color : #e74c3c;
+       }
+       /* + : 인접한 태그를 선택 */
+       input:checked + label{
+            color : #2ecc71;
+            font-weight : bold;
+       } 
+       input:enabled{
+        background-color : #ecf0f1;
+       }
+       input:disbled{
+        background-color : #bdc3c7;
+       }
+       input:required{
+        border : 2px solid orange
+       }
+       input:invaild
+    </style>
+</head>
+<body>
+    <!-- 동적 의사 클래스
+     - 사용자의 동작에 따라 상태가 바뀌는 의사 클래스 
+     의사 클래스 : 특정 상태에 있는 요소를 선택하는 css 선택자 --> 
+    
+     <!-- :hover 마우스를 올렸을 때 -->
+      <button class="h-btn">버튼</button>
+      <br><br>
+      <input type="text" placeholder="이름입력">
+      <br><br>
+      <a href="https://www.naver.com">Example 링크</a>
+
+      <!-- :link -> :visited -> :hover -> :active
+       순서대로 작성해야 예측 가능한 동작이 된다. -->
+
+       <hr>
+       <h2>상태 의사 클래스</h2>
+       <input type="checkbox" id="chk1">
+       <label for="chk1">동의합니다.</label>
+       <br><br>
+       <input type="text" placeholder="입력가능">
+       <br><br>
+       <input type="text" disabled placeholder="입력불가">
+       <br><br>
+       <input type="email" 
+
+</body>
+</html>

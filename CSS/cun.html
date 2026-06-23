@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <title>유저 리스트 관리</title>
+    <style>
+        /* [CSS 조건 1] 기본 카드 스타일 */
+        .card {
+            background-color: #f8f9fa;
+            border: 1px solid #dee2e6;
+            border-radius: 12px;
+            padding: 20px;
+            margin-bottom: 15px; /* 카드 간 간격 */
+        }
+
+        /* [CSS 조건 2] 구조 의사 클래스 활용 */
+        /* 첫 번째 카드 강조 */
+        .user-list .card:first-child {
+            border: 2px solid #3498db;
+        }
+        /* 두 번째 카드 배경색 변경 */
+        .user-list .card:nth-child(2) {
+            background-color: #fffcf0;
+        }
+
+        /* [CSS 조건 3] 멀티 클래스 선택자 활용 */
+        /* 역할 배지 기본 스타일 */
+        .role-badge {
+            display: inline-block;
+            font-size: 14px;
+            padding: 4px 8px;
+            border-radius: 4px;
+            margin-bottom: 10px;
+        }
+        /* 관리자 배지 (.role-badge.admin) */
+        .role-badge.admin {
+            background-color: #e74c3c;
+            color: #ffffff;
+        }
+        /* 일반 회원 배지 (.role-badge.member) */
+        .role-badge.member {
+            background-color: #2ecc71;
+            color: #ffffff;
+        }
+
+        /* [CSS 조건 4] 동적 및 상태 의사 클래스 활용 */
+        /* 카드 마우스 오버 (:hover) */
+        .card:hover {
+            background-color: #e9ecef;
+            cursor: pointer;
+        }
+        /* 체크박스 선택 시 형제 라벨 스타일 변경 (:checked + label) */
+        .card input[type="checkbox"]:checked + label {
+            color: #9b59b6;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+    <h2>유저 관리 대시보드</h1>
+    <div class="user-list">
+        
+        <div class="card">
+            <h3 class="user-name">홍길동</h3>
+            <span class="role-badge admin">관리자</span>
+            <br>
+            <input type="checkbox" id="user1">
+            <label for="user1">현재 작업 멤버로 선택</label>
+        </div>
+        
+        <div class="card">
+            <h3 class="user-name">김철수</h3>
+            <span class="role-badge member">일반 회원</span>
+            <br>
+            <input type="checkbox" id="user2">
+            <label for="user2">현재 작업 멤버로 선택</label>
+        </div>
+        
+        <div class="card">
+            <h3 class="user-name">이영희</h3>
+            <span class="role-badge member">일반 회원</span>
+            <br>
+            <input type="checkbox" id="user3">
+            <label for="user3">현재 작업 멤버로 선택</label>
+        </div>
+
+    </div>
+
+</body>
+</html>
