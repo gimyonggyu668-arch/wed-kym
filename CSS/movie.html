@@ -1,0 +1,258 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Movie Preview</title>
+    <style>
+        body {
+            background-color: #111625;
+            color: #ffffff;
+            margin: 0;
+            font-family: sans-serif;
+        }
+        header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            height: 70px;
+            padding: 0 50px;
+            background-color: #0b0d17;
+            border-bottom: 1px solid #1f2438;
+        }
+        .badge {
+            display: inline-block;     
+            align-self: flex-start;   
+            background-color: #e50914; 
+            color: #ffffff;           
+            padding: 6px 16px;        
+            border-radius: 50px;        
+            font-size: 13px;
+            font-weight: bold;
+            margin-bottom: 15px;       
+            letter-spacing: -0.5px;     
+        }
+        .logo {
+            font-size: 20px;
+            font-weight: bold;
+            color: #e50914;
+        }
+        .nav-menu {
+            display: flex;
+            gap: 30px;
+        }
+        .nav-menu .item {
+            font-size: 15px;
+            cursor: pointer;
+            color: #cccccc;
+            transition: color 0.3s ease, transform 0.3s ease;
+        }
+        .nav-menu .item:hover {
+            color: #ff3838;
+            transform: scale(1.12);
+        }
+        main {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 60px 20px;
+        }
+        .movie-main {
+            display: flex;
+            gap: 6%;
+            align-items: flex-start;
+            margin-bottom: 80px;
+        }
+        .poster-box {
+            width: 42%;                 
+            height: 520px;              
+            border-radius: 16px;       
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.5); 
+            overflow: hidden;           
+        }
+        .poster-box img {
+            width: 100%;             
+            height: 100%;              
+            object-fit: cover;       
+            display: block;
+            transition: opacity 0.3s ease, transform 0.3s ease;
+        }
+        .poster-box:hover img {
+            opacity: 0.8;               
+            transform: scale(1.03);    
+        }
+        .info-box {
+            width: 52%;
+            display: flex;
+            flex-direction: column;
+        }
+        .info-box h2 {
+            font-size: 40px;
+            font-weight: 800;
+            margin: 0 0 15px 0;
+        }
+        .info-box p {
+            color: #bdc2d2;
+            font-size: 16px;
+            margin: 0 0 30px 0;
+        }
+        /* 항목들을 세로(열)로 배치하고 하나의 상자로 묶는 스타일 */
+        .movie-box {
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+            background-color: #1c233d;
+            border: 1px solid #2a3454;
+            padding: 28px;
+            border-radius: 12px;
+            margin-bottom: 25px;
+            transition: border-color 0.3s, box-shadow 0.3s, transform 0.3s;
+        }
+        .movie-box div {
+            font-size: 15px;
+            color: #abb2c4;
+        }
+        .movie-box:hover {
+            border-color: #4a5578;
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.4);
+            transform: translateX(8px);
+        }
+        .btn-group {
+            display: flex;
+            gap: 15px;
+        }
+        .btn-group button {
+            padding: 14px 28px;
+            border-radius: 8px;
+            font-size: 15px;
+            font-weight: bold;
+            border: none;
+            cursor: pointer;
+            transition: background-color 0.3s, transform 0.3s, box-shadow 0.3s;
+        }
+        .btn-group button:first-child {
+            background-color: #e50914;
+            color: #ffffff;
+        }
+        .btn-group button:last-child {
+            background-color: #ffffff;
+            color: #111625;
+        }
+        .btn-group button:hover {
+            transform: scale(1.08);
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
+        }
+        
+        .recommend-section {
+            margin-top: 20px;
+        }
+        .recommend-section h3 {
+            font-size: 22px;
+            font-weight: bold;
+            margin-bottom: 25px;
+        }
+        .recommend-container {
+            display: flex;
+            gap: 20px;
+        }
+        .recommend-card {
+            flex: 1;
+            background-color: #1c233d;
+            border: 1px solid #2a3454;
+            border-radius: 12px;
+            padding: 25px;
+            transition: background-color 0.3s, transform 0.3s, border-color 0.3s;
+        }
+        .recommend-card h4 {
+            font-size: 18px;
+            font-weight: bold;
+            margin: 0 0 8px 0;
+        }
+        .recommend-card .genre-tag {
+            font-size: 14px;
+            color: #ffffff;
+            font-weight: 500;
+            margin-bottom: 15px;
+        }
+        .recommend-container .recommend-card:first-child .genre-tag {
+            color: #ffffff;
+        }
+        .recommend-card p {
+            font-size: 14px;
+            color: #abb2c4;
+            margin: 0;
+            word-break: keep-all;
+        }
+        .recommend-card:hover {
+            background-color: #252e4e;
+            transform: translateY(-8px);
+            border-color: #4a5578;
+        }
+        footer {
+            background-color: #0b0d17;
+            border-top: 1px solid #1f2438;
+            padding: 30px 0;
+            text-align: center;
+            margin-top: 50px;
+        }
+        footer p {
+            color: #5d6578;
+            font-size: 14px;
+            margin: 0;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="logo">Movie Preview</div>
+        <div class="nav-menu">
+            <div class="item">상영작</div>
+            <div class="item">예매</div>
+            <div class="item">이벤트</div>
+        </div>
+    </header>
+    <main>
+        <section class="movie-main">
+            <div class="poster-box">
+                <img src="KakaoTalk_20260626_154147564.png" alt="Shadow City 포스터">
+            </div>
+            <div class="info-box">
+                <div class="badge">이번 주 추천작</div>
+                <h2>Shadow City</h2>
+                <p>어두운 도시를 배경으로 숨겨진 진실을 추적하는 액션 스릴러 영화입니다. <br>
+                    빠른 전개와 긴장감 있는 장면을 통해 관객에게 강한 몰입감을 제공합니다.
+                </p>
+                <div class="movie-box">
+                    <div>장르: 액션 / 스릴러</div>
+                    <div>상영 시간: 128분</div>
+                    <div>관람 등급: 15세 이상 관람가</div>
+                </div>
+                <div class="btn-group">
+                    <button>예매하기</button>
+                    <button>상세정보</button>
+                </div>
+            </div>
+        </section>
+       
+        <section class="recommend-section">
+            <h3>함께 보면 좋은 영화</h3>
+            <div class="recommend-container">
+                <div class="recommend-card">
+                    <div class="genre-tag"><h4>액션 무비</h4></div>
+                    <p>화려한 전투 장면과 빠른 전개가 돋보이는 영화입니다.</p>
+                </div>
+                <div class="recommend-card">
+                    <div class="genre-tag"><h4>로맨스 무비</h4></div>
+                    <p>따뜻한 감성과 인물 간의 관계를 중심으로 전개됩니다.</p>
+                </div>
+                <div class="recommend-card">
+                    <div class="genre-tag"><h4>애니메이션 무비</h4></div>
+                    <p>상상력 있는 화면과 가족이 함께 보기 좋은 이야기를 담았습니다.</p>
+                </div>
+            </div>
+        </section>
+    </main>
+    <footer>
+        <p>© 2026 Movie Preview</p>
+    </footer>
+</body>
+</html>

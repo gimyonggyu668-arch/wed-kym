@@ -1,0 +1,341 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Happy Paws 대시보드</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            background-color: #eef2f3;
+            font-family: 'Malgun Gothic', sans-serif;
+        }
+
+        .wrapper {
+            display: flex;
+            min-height: 100vh;
+        }
+
+        .sidebar {
+            width: 240px;
+            background-color: #263238;
+            color: white;
+            padding: 30px 20px;
+            flex-shrink: 0;
+        }
+
+        .logo {
+            color: #ffcc80;
+            font-size: 26px;
+            font-weight: bold;
+            margin-bottom: 40px;
+        }
+
+        .menu ul {
+            list-style: none;
+        }
+
+        .menu li a {
+            color: white;
+            text-decoration: none;
+            display: block;
+            padding: 12px 10px;
+            font-size: 16px;
+            border-radius: 8px;
+            transition: 0.3s;
+        }
+
+        .menu li a:hover {
+            background-color: #37474f;
+            transform: translateX(8px);
+        }
+
+        .container {
+            flex-grow: 1;
+            padding: 30px;
+            display: flex;
+            flex-direction: column;
+            gap: 30px;
+        }
+
+        .main-header {
+            background-color: white;
+            border-radius: 18px;
+            padding: 24px 30px;
+            box-shadow: 0 8px 20px rgba(0,0,0,0.06);
+        }
+
+        .main-header h1 {
+            font-size: 28px;
+            color: #263238;
+            margin-bottom: 8px;
+            animation: slideUp 0.9s ease-out forwards;
+        }
+
+        .main-header p {
+            color: #607d8b;
+            font-size: 15px;
+        }
+
+        .card-section {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 24px;
+        }
+
+        .card {
+            background-color: white;
+            border-radius: 18px;
+            padding: 24px;
+            box-shadow: 0 8px 20px rgba(0,0,0,0.08);
+            transition: 0.3s;
+            animation: scaleUp 0.6s ease-out forwards;
+        }
+
+        .card h3 {
+            font-size: 16px;
+            color: #607d8b;
+            margin-bottom: 12px;
+        }
+
+        .card-number {
+            color: #ef6c00;
+            font-size: 38px;
+            font-weight: bold;
+        }
+
+        .card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 16px 28px rgba(0,0,0,0.15);
+        }
+
+        .table-section {
+            background-color: white;
+            border-radius: 18px;
+            padding: 28px;
+            box-shadow: 0 8px 20px rgba(0,0,0,0.06);
+        }
+
+        .table-section h2 {
+            font-size: 20px;
+            color: #263238;
+            margin-bottom: 20px;
+        }
+
+        .status-table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+
+        .status-table th, .status-table td {
+            border: 1px solid #ddd;
+            padding: 12px;
+            text-align: center;
+            font-size: 15px;
+        }
+
+        .status-table th {
+            background-color: #eceff1;
+            color: #37474f;
+            font-weight: bold;
+        }
+
+        .status-table tbody tr {
+            height: 54px;
+            transition: 0.3s;
+        }
+
+        .status-table tbody tr:hover {
+            background-color: #fff3e0;
+        }
+
+        .info-section {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 24px;
+        }
+
+        .info-box {
+            background-color: white;
+            border-radius: 18px;
+            padding: 28px;
+            box-shadow: 0 8px 20px rgba(0,0,0,0.06);
+            transition: 0.3s;
+        }
+
+        .info-box h3 {
+            font-size: 18px;
+            color: #263238;
+            margin-bottom: 16px;
+        }
+
+        .info-box ul {
+            list-style-position: inside;
+            color: #455a64;
+            line-height: 1.8;
+        }
+
+        .info-box:hover {
+            transform: scale(1.03);
+        }
+
+        .alert-box {
+            animation: shake 2s infinite ease-in-out;
+        }
+
+        .main-footer {
+            background-color: white;
+            border-radius: 18px;
+            padding: 20px;
+            color: #607d8b;
+            text-align: center;
+            font-size: 14px;
+            box-shadow: 0 8px 20px rgba(0,0,0,0.04);
+        }
+
+        @keyframes slideUp {
+            0% {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            100% {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes scaleUp {
+            0% {
+                opacity: 0;
+                transform: scale(0.9);
+            }
+            100% {
+                opacity: 1;
+                transform: scale(1);
+            }
+        }
+
+        @keyframes shake {
+            0%, 100% { transform: translateX(0); }
+            10%, 30%, 50%, 70%, 90% { transform: translateX(-4px); }
+            10%, 40%, 60%, 80% { transform: translateX(4px); }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="wrapper">
+
+        <aside class="sidebar">
+            <div class="logo">Happy Paws</div>
+            <nav class="menu">
+                <ul>
+                    <li><a href="#">대시보드</a></li>
+                    <li><a href="#">입양 관리</a></li>
+                    <li><a href="#">보호동물물</a></li>
+                    <li><a href="#">봉사 일정</a></li>
+                    <li><a href="#">후원원 현황</a></li>
+                </ul>
+            </nav>
+        </aside>
+
+        <main class="container">
+
+            <header class="main-header">
+                <h1>입입양 현황 대시보드</h1>
+                <p>오늘의보호호소 운영 현황을 한눈에 확인합니다.</p>
+            </header>
+
+            <section class="card-section">
+                <article class="card">
+                    <h3>보호중</h3>
+                    <div class="card-number">28</div>
+                </article>
+                <article class="card">
+                    <h3>입양양 완료</h3>
+                    <div class="card-number">12</div>
+                </article>
+                <article class="card">
+                    <h3>치료료중</h3>
+                    <div class="card-number">5</div>
+                </article>
+                <article class="card">
+                    <h3>봉사 신청</h3>
+                    <div class="card-number">18</div>
+                </article>
+            </section>
+
+            <section class="table-section">
+                <h2>보호동동물물상태표표</h2>
+                <table class="status-table">
+                    <thead>
+                        <tr>
+                            <th>이름</th>
+                            <th>종류</th>
+                            <th>상태</th>
+                            <th>담당자</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>초코</td>
+                            <td>강아지</td>
+                            <td>입양 대기</td>
+                            <td>김보호</td>
+                        </tr>
+                        <tr>
+                            <td>나비</td>
+                            <td>고양이</td>
+                            <td>치료중</td>
+                            <td>이관리</td>
+                        </tr>
+                        <tr>
+                            <td>두부</td>
+                            <td>강아지</td>
+                            <td>상담 예약</td>
+                            <td>박입양</td>
+                        </tr>
+                        <tr>
+                            <td>콩이</td>
+                            <td>고양이</td>
+                            <td>입양 완료</td>
+                            <td>최상담</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </section>
+
+            <section class="info-section">
+                <article class="info-box alert-box">
+                    <h3>긴급 구조 알림</h3>
+                    <ul>
+                        <li>오늘 구조 요청 3건</li>
+                        <li>치료가 필요한 동물 2마리 확인</li>
+                        <li>임시 보호처 곳곳 필요</li>
+                    </ul>
+                </article>
+                <article class="info-box schedule-box">
+                    <h3>봉일정일정</h3>
+                    <ul>
+                        <li>오전 10:00 산책 봉사</li>
+                        <li>오후후 02:00 보호소 청소</li>
+                        <li>오후후 05:00 사료 정리</li>
+                    </ul>
+                </article>
+            </section>
+
+            <footer class="main-footer">
+                <p>© 2026 Happy Paws Animal Shelter Dashboard</p>
+            </footer>
+
+        </main>
+        
+    </div>
+
+</body>
+</html>
