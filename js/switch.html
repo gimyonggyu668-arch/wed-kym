@@ -1,0 +1,231 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        const day = 3;
+
+        switch(day){
+            case 1:
+                document.write('월요일');
+                break;
+            case 2: 
+                document.write('화요일');
+                break;
+            case 3:
+                document.write('수요일');
+                break;
+            default:
+                document.write('1~3이 아니다.');
+        }
+
+        document.write('<hr>')
+
+        function showPrice(){
+            //선택한 과일 정보를 가져오기
+            let fruit = document.getElementById('fruit').value;
+
+            //사과 : 3000원
+            //바나나 : 2500원
+            //포도 : 5000원
+            //오렌지 : 4000원
+            let price = 0;
+            switch(fruit){
+                case "apple":
+                    price = 3000;
+                    break;
+                case "banana":
+                    price = 2500;
+                    break;
+                case "grape":
+                    price = 5000;
+                    break;
+                case "orange":
+                    price = 4000;
+                    break;
+            }
+
+            //화면에 가격 띄우기 
+        }
+        function checkClassroom(){
+            let grade = Number(document.getElementById("grade").value);
+            let result2;
+            switch(grade){
+                case 1:
+            }
+        }
+  
+       function checkPermission() {
+           // name이 "role"인 라디오 버튼 중에서 현재 선택(checked)된 요소를 가져옴
+           const selectedRole = document.querySelector('input[name="role"]:checked');
+           const resultDiv = document.getElementById("result");
+           
+           let text = "";
+
+           // 선택된 라디오 버튼의 value 값에 따라 분기 처리
+           switch(selectedRole.value) {
+               case "admin":
+                   text = `<strong>[관리자 권한]</strong><br>
+                           - 회원 관리 및 강퇴<br>
+                           - 게시판 설정 및 삭제<br>
+                           - 모든 시스템 기능 이용 가능`;
+                   break;
+               case "member":
+                   text = `<strong>[회원 권한]</strong><br>
+                           - 게시글 작성 및 수정<br>
+                           - 댓글 작성 및 좋아요<br>
+                           - 회원 전용 이벤트 참여 가능`;
+                   break;
+               case "guest":
+                   text = `<strong>[손님 권한]</strong><br>
+                           - 게시글 및 댓글 조회만 가능<br>
+                           - 글 쓰기 및 시스템 기능 이용 불가`;
+                   break;
+               default:
+                   text = "잘못된 접근입니다.";
+           }
+
+           // 결과를 화면에 출력
+           resultDiv.innerHTML = text;
+       }
+
+
+
+    </script>
+</head>
+<body>
+    <select id="fruit">
+        <option value="apple">사과</option>
+        <option value="apple">바나나</option>
+        <option value="apple">포도</option>
+        <option value="apple">오렌지</option>
+    </select>
+
+    <button onclick="showPrice()">가격 확인</button>
+    <h3 id="result"></h3>
+
+    <hr>
+    <h3>학년별 강의실 안내</h3>
+    <!-- 사용자가 학년을 입력하면 해당 학년의 강의실과 안내 문구를 출력하세요
+     1학년 : A동 101호 HTML/CSS 기초 수업
+     2학년 : B동 202호 중급 Javascript 수업
+     3학년 : C동 303호 프로젝트 실습 수업
+     4학년 : D동 404호 포트폴리오 제작 수업
+
+     출력예시
+     2학년
+     강의실 : B동 202호
+     중급 JavaScript 수업입니다. -->
+    <label>
+        학년 입력: 
+        <input type="number" id="grade">
+    </label>
+    <br><br>
+    <button onclick="checkClassroom()">확인</button>
+
+    <div id="result2"></div>
+    <hr>
+    <h3>라디오 버튼으로 회원 권한 확인</h3>
+    <!-- 관리자, 회원, 손님 라디오 버튼 만들기 -->
+   <div class="radio-group">
+       <!-- name="role"로 묶어주어야 셋 중 하나만 선택됩니다. -->
+       <label><input type="radio" name="role" value="admin" checked> 관리자</label>
+       <label><input type="radio" name="role" value="member"> 회원</label>
+       <label><input type="radio" name="role" value="guest"> 손님</label>
+   </div>
+
+   <!-- 권한 확인 버튼 만들기 -->
+   <button onclick="checkPermission()">권한 확인</button>
+
+   <!-- 결과 출력하기 -->
+   <div id="result" class="result-box">권한을 선택하고 버튼을 눌러주세요.</div>
+   <hr>
+  
+    
+</body>
+</html>
+
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <title>연산자 버튼 계산기</title>
+    <style>
+        body { font-family: Arial, sans-serif; margin: 20px; line-height: 1.6; }
+        .input-group { margin-bottom: 10px; }
+        .input-group input { width: 80px; padding: 5px; text-align: right; }
+        .btn-group { margin: 15px 0; }
+        .btn-group button { width: 40px; height: 35px; font-size: 16px; font-weight: bold; cursor: pointer; margin-right: 5px; }
+        .result-box { padding: 10px; border: 1px solid #ccc; width: 220px; background-color: #f9f9f9; font-weight: bold; }
+    </style>
+</head>
+<body>
+
+   <h3>연산자 버튼 계산기</h3>
+   
+   <!-- 두 개의 숫자 입력창 -->
+   <div class="input-group">
+       <input type="number" id="num1" placeholder="숫자 1">
+       <input type="number" id="num2" placeholder="숫자 2">
+   </div>
+
+   <!-- 연산자 버튼들 (클릭 시 각각 다른 기호를 함수로 전달) -->
+   <div class="btn-group">
+       <button onclick="calculate('+')">+</button>
+       <button onclick="calculate('-')">-</button>
+       <button onclick="calculate('*')">×</button>
+       <button onclick="calculate('/')">÷</button>
+   </div>
+
+   <!-- 결과 출력 영역 -->
+   <div id="result" class="result-box">결과가 여기에 출력됩니다.</div>
+  <!-- 결과를 화면에 깔끔하게 출력 (예: 5 + 3 = 8) -->
+          
+   <script>
+       function calculate(operator) {
+           // 입력창의 값을 가져와서 소수점 연산까지 가능하도록 Number 타입으로 변환
+           const n1 = Number(document.getElementById("num1").value);
+           const n2 = Number(document.getElementById("num2").value);
+           const resultDiv = document.getElementById("result");
+
+           // 숫자가 제대로 입력되었는지 검증 (둘 중 하나라도 빈 값이면 실행 안 함)
+           if (document.getElementById("num1").value === "" || document.getElementById("num2").value === "") {
+               resultDiv.innerHTML = `<span style="color: red;">두 숫자를 모두 입력해 주세요.</span>`;
+               return;
+           }
+
+           let calcResult = 0;
+
+           // 전달받은 연산자 기호에 따라 계산 분기 처리
+           switch(operator) {
+               case '+':
+                   calcResult = n1 + n2;
+                   break;
+               case '-':
+                   calcResult = n1 - n2;
+                   break;
+               case '*':
+                   calcResult = n1 * n2;
+                   break;
+               case '/':
+                   // 0으로 나누려고 할 때의 예외 처리
+                   if (n2 === 0) {
+                       resultDiv.innerHTML = `<span style="color: red;">0으로 나눌 수 없습니다.</span>`;
+                       return;
+                   }
+                   calcResult = n1 / n2;
+                   break;
+           }
+
+           resultDiv.innerHTML = `계산 결과 : ${n1} ${operator} ${n2} = ${calcResult}`;
+       }
+   </script>
+    
+</body>
+</html>
+
+
+
+
