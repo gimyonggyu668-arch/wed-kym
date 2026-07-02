@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <title>로그인 페이지</title>
+    <style>
+    
+        body {
+            display: flex;
+            justify-content: center; 
+            align-items: center;
+            min-height: 100vh;       
+            margin: 0;
+            background-color: #f9f9f9; 
+            transition: 0.5s;         
+        }
+
+        #loginBox {
+            width: 300px;
+            padding : 100px;
+            border: 1px solid #ccc;
+            border-radius: 10px;
+            background-color: white;
+            transition: 0.5s;
+            text-align: center;      
+            box-shadow: 0 4px 10px rgba(0,0,0,0.05);
+        }
+
+        input {
+            display: block;
+            width: 93%;
+            margin: 0 auto 10px auto;
+            padding: 8px 5px;
+        }
+
+        button {
+            
+            padding: 6px 12px;
+            margin: 5px;
+            cursor: pointer;
+        }
+
+      
+        body.dark-mode {
+            background-color: #333;
+        }
+
+     
+        #loginBox.dark-mode {
+            background-color: #242429 !important;
+            color: #959597;
+            border: 2px solid #c4dcec !important;
+        }
+
+      
+        .dark-mode input {
+            border-radius: 10px;
+            background-color: #444;
+            border: 3.4px solid #5d7080;
+        }
+    </style>
+</head>
+<body>
+
+    <div id="loginBox">
+        <h2>로그인</h2>
+        <input type="text" id="userId" placeholder="아이디">
+        <input type="password" id="userPw" placeholder="비밀번호">
+        <button id="loginBtn">로그인</button>
+        <hr>
+        <button onclick="changeMode('dark')">다크모드</button>
+        <button onclick="changeMode('light')">라이트모드</button>
+    </div>
+
+    <script>
+       
+        function changeMode(mode) {
+            const loginBox = document.getElementById('loginBox');
+            
+            if (mode === 'dark') {
+                loginBox.classList.add('dark-mode');
+                document.body.classList.add('dark-mode'); // 바깥쪽 배경 추가
+            } else {
+                loginBox.classList.remove('dark-mode');
+                document.body.classList.remove('dark-mode'); // 바깥쪽 배경 제거
+            }
+        }
+    </script>
+</body>
+</html>

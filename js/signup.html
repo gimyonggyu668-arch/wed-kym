@@ -1,0 +1,273 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=device-width, initial-scale=1.0">
+    <title>회원가입</title>
+    <style>
+        /* 전체 화면 스타일 */
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+            background-color: #f3f4f6;
+        }
+
+        /* 전체 감싸는 영역 */
+        .container {
+            width: 420px;
+            margin: 50px auto;
+            background-color: white;
+            padding: 30px;
+            border-radius: 12px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+            box-sizing: border-box;
+        }
+
+        /* 제목 */
+        h1 {
+            text-align: center;
+            color: #111827;
+            margin-top: 0;
+            margin-bottom: 25px;
+        }
+
+        /* 입력 폼 그룹 레이아웃 */
+        .form-group {
+            margin-bottom: 15px;
+        }
+        .form-group label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: bold;
+            font-size: 14px;
+            color: #374151;
+        }
+
+        /* 아이디 입력 영역 */
+        .id-box {
+            display: flex;
+            gap: 10px;
+        }
+        .id-box input {
+            flex: 1;
+        }
+        #checkBtn {
+            width: 90px;
+            background-color: #6b7280;
+            color: white;
+        }
+
+        /* 이메일 입력 영역 */
+        .email-box {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+        .email-box input {
+            flex: 1;
+        }
+        .email-box select {
+            width: 140px;
+        }
+
+        /* 입력창과 select 공통 */
+        input, select {
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 6px;
+            box-sizing: border-box;
+        }
+        input[type="text"], input[type="password"] {
+            width: 100%;
+        }
+        .id-box input, .email-box input {
+            width: auto; /* flex 적용을 위해 초기화 */
+        }
+
+        /* 버튼 공통 */
+        button {
+            padding: 10px;
+            border: none;
+            border-radius: 6px;
+            cursor: pointer;
+        }
+
+        /* 회원가입 버튼 */
+        #joinBtn {
+            width: 100%;
+            background-color: royalblue;
+            color: white;
+            margin-top: 15px;
+            font-size: 16px;
+            font-weight: bold;
+        }
+
+        /* 결과 메시지 영역 */
+        #message {
+            margin-top: 15px;
+            text-align: center;
+            font-weight: bold;
+            min-height: 20px;
+        }
+
+        /* 회원 목록 영역 구분을 위한 라인 */
+        hr {
+            margin: 25px 0;
+            border: 0;
+            border-top: 1px solid #e5e7eb;
+        }
+
+        /* 회원 목록 아이템 */
+        .member-item {
+            background-color: #f9fafb;
+            border: 1px solid #ddd;
+            padding: 10px;
+            margin-top: 8px;
+            border-radius: 6px;
+            font-size: 14px;
+            color: #4b5563;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <h1>회원가입</h1>
+        
+        <div class="form-group">
+            <label for="userId">아이디</label>
+            <div class="id-box">
+                <input type="text" id="userId" placeholder="아이디 입력">
+                <button type="button" id="checkBtn">중복검사</button>
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label for="userPw">비밀번호</label>
+            <input type="password" id="userPw" placeholder="비밀번호 입력">
+        </div>
+
+        <div class="form-group">
+            <label for="emailId">이메일</label>
+            <div class="email-box">
+                <input type="text" id="emailId" placeholder="이메일 아이디">
+                <span>@</span>
+                <select id="emailDomain">
+                    <option value="gmail.com">gmail.com</option>
+                    <option value="naver.com">naver.com</option>
+                    <option value="daum.net">daum.net</option>
+                    <option value="kakao.com">kakao.com</option>
+                </select>
+            </div>
+        </div>
+
+        <button type="button" id="joinBtn">회원가입</button>
+
+        <div id="message"></div>
+
+        <hr>
+
+        <h3>가입된 회원 목록</h3>
+        <div id="memberList"></div>
+    </div>
+
+    <script>
+        // 1) 회원 저장 배열
+        let members = [];
+
+        // DOM 요소 가져오기
+        const userIdInput = document.getElementById('userId');
+        const userPwInput = document.getElementById('userPw');
+        const emailIdInput = document.getElementById('emailId');
+        const emailDomainSelect = document.getElementById('emailDomain');
+        const checkBtn = document.getElementById('checkBtn');
+        const joinBtn = document.getElementById('joinBtn');
+        const messageDiv = document.getElementById('message');
+        const memberListDiv = document.getElementById('memberList');
+
+        // 2) 아이디 중복검사 기능
+        checkBtn.addEventListener('click', function() {
+            const userId = userIdInput.value.trim();
+
+            // 아이디를 입력하지 않은 경우
+            if (userId === "") {
+                alert("아이디를 입력하세요.");
+                messageDiv.textContent = "";
+                return;
+            }
+
+            // 이미 같은 아이디가 있는지 확인
+            const isDuplicate = members.some(member => member.id === userId);
+
+            if (isDuplicate) {
+                // 이미 같은 아이디가 있는 경우
+                messageDiv.textContent = "이미 사용 중인 아이디입니다.";
+                messageDiv.style.color = "red";
+            } else {
+                // 중복이 없는 경우
+                messageDiv.textContent = "사용 가능한 아이디입니다.";
+                messageDiv.style.color = "green";
+            }
+        });
+
+        // 3) 회원가입 기능
+        joinBtn.addEventListener('click', function() {
+            const userId = userIdInput.value.trim();
+            const userPw = userPwInput.value.trim();
+            const emailId = emailIdInput.value.trim();
+            const emailDomain = emailDomainSelect.value;
+
+            // 아이디, 비밀번호, 이메일 아이디 중 하나라도 비어 있음
+            if (userId === "" || userPw === "" || emailId === "") {
+                alert("모든 항목을 입력하세요.");
+                return;
+            }
+
+            // 이미 가입된 아이디인지 확인
+            const isDuplicate = members.some(member => member.id === userId);
+            if (isDuplicate) {
+                alert("이미 가입된 아이디입니다.");
+                return;
+            }
+
+            // 이메일 결합 (형태: 아이디@도메인)
+            const fullEmail = `${emailId}@${emailDomain}`;
+
+            // 모든 조건 통과 -> 회원 객체를 배열에 저장
+            const newMember = {
+                id: userId,
+                pw: userPw,
+                email: fullEmail
+            };
+            members.push(newMember);
+
+            // 4) 회원가입 완료 후 처리
+            messageDiv.textContent = "회원가입이 완료되었습니다.";
+            messageDiv.style.color = "blue";
+
+            // 입력창 비우기
+            userIdInput.value = "";
+            userPwInput.value = "";
+            emailIdInput.value = "";
+            emailDomainSelect.selectedIndex = 0; // 첫 번째 옵션으로 초기화
+
+            // 회원 목록 다시 출력하기
+            renderMemberList();
+        });
+
+        // 5) 회원 목록 출력 함수
+        function renderMemberList() {
+            // 기존 목록 비우기
+            memberListDiv.innerHTML = "";
+
+            // 배열을 순회하며 아이디와 이메일만 출력 (비밀번호 제외)
+            members.forEach(member => {
+                const memberItem = document.createElement('div');
+                memberItem.className = 'member-item';
+                memberItem.textContent = `아이디: ${member.id} | 이메일: ${member.email}`;
+                memberListDiv.appendChild(memberItem);
+            });
+        }
+    </script>
+</body>
+</html>
