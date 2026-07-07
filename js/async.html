@@ -33,6 +33,17 @@
                 document.getElementById("photo").src = data[random].download_url;
             });
         })
+
+        document.getElementById("btn4").addEventListener("click", () => {
+            //input태그에 작성한 내용을 읽어와서 
+            //객체로 만들기 
+
+            fetch("http://jsonplaceholder.typicode.com/users", {
+                method : "POST",
+                headers : { "Content-Type" : "application/json"},
+                body : JSON.stringify()
+                })
+            })
     </script>
 </body>
 </html>
