@@ -1,5 +1,10 @@
-package com.korea.todo.config;
-
-public class WebMvConfig {
-
-}
+server : 
+  port : 10000
+  
+  
+ spring : 
+	 datasource : 
+		 url : jdbc:h2:mem:testdb
+		 driver-class-name: org.h2.Driver
+		 username: sa
+		 password: 
